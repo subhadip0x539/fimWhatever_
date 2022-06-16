@@ -677,6 +677,7 @@ def post_setseverity():
 def get_cve(cve):
         data = get(f'https://cve.circl.lu/api/cve/{cve}').content.decode()
         content = json.loads(data)
+        print(content)
         content_json = {'id': content['id'], 'name': content['capec'][0]['name'], 'summary': content['capec'][0]['summary'], 'solutions': content['capec'][0]['solutions']}
         return jsonify(content_json)
 
